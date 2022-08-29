@@ -54,11 +54,16 @@ class Adapter
     public static function create($model, $data, $options = [])
     {
         $id_in_header = Utility::getOption($options, 'id_in_header', true);
+        $id_in_url = Utility::getOption($options, 'id_in_url', false);
 
         try
         {
             $data = Utility::objectToArray($data);
             $endpoint = Utility::getModelEndpoint($model);
+
+            if ($id_in_url) {
+                $endpoint = sprintf($endpoint, Utility::getOption($options, 'id'));
+            }
 
             $response = Api::post($endpoint, $data, $id_in_header);
 

@@ -50,7 +50,7 @@ class Utility
         $models = [
             'CardTransaction' => 'transactions',
             'Report' => 'report',
-            'Refund' => 'transactions/'. $model_id .'/refund',
+            'Refund' => 'transactions/refund/%d',
             'Plan' => 'recurring/plans',
             'Subscription' => 'recurring/subscriptions',
             'SubscriptionCharge' => 'recurring/subscriptions/charges',
